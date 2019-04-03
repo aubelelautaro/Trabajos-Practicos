@@ -7,6 +7,7 @@ int main()
     int rta;
     int x=0;
     int y=0;
+    int flag=0;
     int suma,resta,multiplicacion;
     long factoreoA;
     long factoreoB;
@@ -31,6 +32,7 @@ int main()
                 y = getInt("Ingrese B:", y);
                 break;
             case 3:
+                flag=1;
                 suma = sumar(x,y);
                 resta = restar(x,y);
                 multiplicacion = multiplicar(x,y);
@@ -39,29 +41,35 @@ int main()
                 factoreoB = factorial(y);
                 break;
             case 4:
-                printf("a) El resultado de A+B es:%d\n", suma);
-                printf("b) El resultado de A-B es:%d\n", resta);
-                if(division==0)
+                 if(flag ==1)
                 {
-                    printf("c) La division no es posible\n");
+                    printf("a) El resultado de A+B es:%d\n", suma);
+                    printf("b) El resultado de A-B es:%d\n", resta);
+                    if(division==0)
+                    {
+                        printf("c) La division no es posible\n");
+                    }else
+                    {
+                        printf("c) El resultado de A/B es:%.2f\n", division);
+                    }
+                    printf("d) El resultado de A*B es:%d\n", multiplicacion);
+                    if(factoreoA<=0)
+                    {
+                        printf("e)Factorial de A: error\n");
+                    }else
+                    {
+                        printf("e) El factorial de A es:%li\n",factoreoA);
+                    }
+                    if(factoreoB<=0)
+                    {
+                        printf("Factorial de B: error\n");
+                    }else
+                    {
+                        printf(" El factorial de B es:%li\n",factoreoB);
+                    }
                 }else
                 {
-                    printf("c) El resultado de A/B es:%.2f\n", division);
-                }
-                printf("d) El resultado de A*B es:%d\n", multiplicacion);
-                if(factoreoA<=0)
-                {
-                    printf("e)Factorial de A: error\n");
-                }else
-                {
-                    printf("e) El factorial de A es:%li\n",factoreoA);
-                }
-                if(factoreoB<=0)
-                {
-                    printf("Factorial de B: error\n");
-                }else
-                {
-                    printf(" El factorial de B es:%li\n",factoreoB);
+                    printf("Todavia no se calcularon las operaciones\n");
                 }
                 break;
             case 5:
